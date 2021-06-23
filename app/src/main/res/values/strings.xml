@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Task23 - Note</string>
+    <string name="save">Сохранить</string>
+    <string name="enterNote">Введите текст заметки</string>
+    <string name="about">О приложении</string>
+    <string name="aboutContent">Приложение создано в рамках обучающего курса Android-разработки компании BSC</string>
+    <string name="headerNoteHelp">Введите заголовок</string>
+    <string name="bodyNoteHelp">Введите текст</string>
+</resources>

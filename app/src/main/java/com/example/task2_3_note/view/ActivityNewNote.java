@@ -42,8 +42,6 @@ public class ActivityNewNote extends AppCompatActivity implements INewNote {
     @Override
     public void returnNote(Note note) {
         Intent newNote = new Intent();
-//        newNote.putExtra(ActivityMain.NOTE_HEADER, note.getHeader());
-//        newNote.putExtra(ActivityMain.NOTE_BODY, note.getBody());
         newNote.putExtra(Note.class.getSimpleName(), note);
         setResult(RESULT_OK, newNote);
         finish();

@@ -4,25 +4,24 @@ import com.example.task2_3_note.model.Model;
 import com.example.task2_3_note.notes.Note;
 import com.example.task2_3_note.view.IMainIView;
 
+
+//Можно ли вынести общий функционал в AbstractPresenter?
 public class MainPresenter {
 
     private IMainIView view;
     private final Model model;
 
-    public MainPresenter() {
+    public MainPresenter(IMainIView view) {
         this.model = new Model();
-    }
-
-    public void attachView(IMainIView view){
         this.view = view;
     }
 
-    public void AddNote(Note note){
+    public void AddNote(Note note) {
         model.addNote(note);
         view.refreshNotes(model.getLastNote());
     }
 
-    public void openNote(int id){
+    public void openNote(int id) {
         view.openNote(model.getNoteByID(id).getBody());
     }
 

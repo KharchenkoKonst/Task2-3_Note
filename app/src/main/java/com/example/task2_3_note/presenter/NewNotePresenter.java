@@ -16,7 +16,8 @@ public class NewNotePresenter {
 
     private INewNote view;
 
-    public void attachView(INewNote view) {
+
+    public NewNotePresenter(INewNote view) {
         this.view = view;
     }
 

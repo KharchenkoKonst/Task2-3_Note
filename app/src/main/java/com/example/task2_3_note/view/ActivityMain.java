@@ -56,8 +56,7 @@ public class ActivityMain extends AppCompatActivity implements IMainIView, Notes
             Intent intent = new Intent("android.intent.action.ACTION_ADD_NOTE");
             startActivityForResult(intent, GET_NOTE);
         });
-        presenter = new MainPresenter();
-        presenter.attachView(this);
+        presenter = new MainPresenter(this);
 
         RecyclerInit();
     }

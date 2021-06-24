@@ -100,4 +100,10 @@ public class ActivityMain extends AppCompatActivity implements IMainIView, Notes
     public void onNoteClick(int position) {
         presenter.openNote(position);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter = null;
+    }
 }

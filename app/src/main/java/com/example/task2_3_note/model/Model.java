@@ -3,22 +3,20 @@ package com.example.task2_3_note.model;
 import com.example.task2_3_note.notes.Note;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Model {
-    private ArrayList<Note> notes;
+    private List<Note> notes;
 
     public Model() {
         notes = new ArrayList<>();
     }
 
-    public Note getNote(){
-        return notes.get(notes.size() - 1);
-    }
-    public Note getNote(int id){
-        return notes.get(id);
+    public List<Note> getNotes() {
+        return notes;
     }
 
-    public void addNote(Note note) {
-        notes.add(note);
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
     }
 }

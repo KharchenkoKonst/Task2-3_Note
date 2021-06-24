@@ -4,11 +4,13 @@ import com.example.task2_3_note.model.Model;
 import com.example.task2_3_note.notes.Note;
 import com.example.task2_3_note.view.IMainIView;
 
+import java.util.List;
+
 
 //Можно ли вынести общий функционал в AbstractPresenter?
 public class MainPresenter {
 
-    private IMainIView view;
+    private final IMainIView view;
     private final Model model;
 
     public MainPresenter(IMainIView view) {
@@ -17,12 +19,14 @@ public class MainPresenter {
     }
 
     public void AddNote(Note note) {
-        model.addNote(note);
-        view.refreshNotes(model.getNote());
+        List<Note> notes = model.getNotes();
+        notes.add(note);
+        model.setNotes(notes);
+        view.refreshNotes(note);
     }
 
     public void openNote(int id) {
-        view.openNote(model.getNote(id).getBody());
+        view.openNote(model.getNotes().get(id).getBody());
     }
 
 }

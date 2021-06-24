@@ -11,11 +11,10 @@ public class Model {
         notes = new ArrayList<>();
     }
 
-    public Note getLastNote() {
+    public Note getNote(){
         return notes.get(notes.size() - 1);
     }
-
-    public Note getNoteByID(int id){
+    public Note getNote(int id){
         return notes.get(id);
     }
 

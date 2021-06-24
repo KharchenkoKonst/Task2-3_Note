@@ -18,11 +18,11 @@ public class MainPresenter {
 
     public void AddNote(Note note) {
         model.addNote(note);
-        view.refreshNotes(model.getLastNote());
+        view.refreshNotes(model.getNote());
     }
 
     public void openNote(int id) {
-        view.openNote(model.getNoteByID(id).getBody());
+        view.openNote(model.getNote(id).getBody());
     }
 
 }

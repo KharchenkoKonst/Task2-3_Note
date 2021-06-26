@@ -23,9 +23,7 @@ public class ActivityNewNote extends AppCompatActivity implements INewNote {
     }
 
     private void init() {
-        findViewById(R.id.saveNoteButton).setOnClickListener(v -> {
-            presenter.createNote();
-        });
+        findViewById(R.id.saveNoteButton).setOnClickListener(v -> presenter.createNote());
         presenter = new NewNotePresenter(this);
     }
 

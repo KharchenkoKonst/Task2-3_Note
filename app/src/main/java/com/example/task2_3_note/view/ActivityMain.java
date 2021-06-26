@@ -20,8 +20,8 @@ public class ActivityMain extends AppCompatActivity implements IMainIView, Notes
 
     private MainPresenter presenter;
     private NotesAdapter notesAdapter;
-    private static final int GET_NOTE = 1;
 
+    public static final int GET_NOTE = 1;
     public static final String NOTE_CONTENT = "NOTE_CONTENT";
 
     @Override
@@ -40,28 +40,20 @@ public class ActivityMain extends AppCompatActivity implements IMainIView, Notes
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case R.id.mainMenu:
-                //Явный интент
-                Intent intent = new Intent(this, ActivityAbout.class);
-                startActivity(intent);
-                return true;
-            default:
-                return false;
+        if (id == R.id.mainMenu) {
+            //Явный интент
+            Intent intent = new Intent(this, ActivityAbout.class);
+            startActivity(intent);
+            return true;
         }
+        return false;
     }
 
     private void init() {
         findViewById(R.id.addNoteButton).setOnClickListener(v -> {
             //Неявный интент
-/*
             Intent intent = new Intent("android.intent.action.ACTION_ADD_NOTE");
             startActivityForResult(intent, GET_NOTE);
-*/
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_TEXT, "text");
-            startActivity(intent);
         });
         presenter = new MainPresenter(this);
 
@@ -75,18 +67,9 @@ public class ActivityMain extends AppCompatActivity implements IMainIView, Notes
         recyclerView.setAdapter(notesAdapter);
     }
 
-    /*
-    Нужно ли делать обработку requestCode и resultCode в презентере или можно здесь совершить
-    проверку, а дальнейшую логику выполнять в презентере?
-    */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            if (requestCode == GET_NOTE) {
-                Note note = (Note) data.getExtras().getSerializable(Note.class.getSimpleName());
-                presenter.AddNote(note);
-            }
-        }
+        presenter.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
 

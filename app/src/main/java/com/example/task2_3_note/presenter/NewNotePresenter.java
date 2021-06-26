@@ -5,6 +5,7 @@ import com.example.task2_3_note.view.interfaces.INewNote;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /*
 В случае работы с БД или локальной файловой системой мы могли бы использовать модель для сохранения
@@ -14,7 +15,7 @@ import java.util.Date;
 
 public class NewNotePresenter {
 
-    private INewNote view;
+    private final INewNote view;
 
 
     public NewNotePresenter(INewNote view) {
@@ -24,7 +25,7 @@ public class NewNotePresenter {
     public void createNote() {
         String header = view.getHeader();
         String body = view.getBody();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yy", Locale.getDefault());
         String date = dateFormat.format(new Date());
         Note note = new Note(header, body, date);
         view.returnNote(note);

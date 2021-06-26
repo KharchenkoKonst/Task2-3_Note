@@ -1,7 +1,7 @@
 package com.example.task2_3_note.presenter;
 
-import com.example.task2_3_note.notes.Note;
-import com.example.task2_3_note.view.INewNote;
+import com.example.task2_3_note.model.Note.Note;
+import com.example.task2_3_note.view.interfaces.INewNote;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

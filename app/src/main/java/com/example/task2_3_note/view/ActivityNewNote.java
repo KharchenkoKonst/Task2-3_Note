@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.widget.EditText;
 
 import com.example.task2_3_note.R;
-import com.example.task2_3_note.notes.Note;
+import com.example.task2_3_note.model.Note.Note;
 import com.example.task2_3_note.presenter.NewNotePresenter;
+import com.example.task2_3_note.view.interfaces.INewNote;
 
 public class ActivityNewNote extends AppCompatActivity implements INewNote {
 

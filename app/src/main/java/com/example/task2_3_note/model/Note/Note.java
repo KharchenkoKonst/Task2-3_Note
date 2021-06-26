@@ -1,11 +1,11 @@
-package com.example.task2_3_note.notes;
+package com.example.task2_3_note.model.Note;
 
 import java.io.Serializable;
 
 public class Note implements Serializable {
-    private String header;
-    private String body;
-    private String date;
+    private final String header;
+    private final String body;
+    private final String date;
 
     public Note(String header, String body, String date) {
         this.header = header;

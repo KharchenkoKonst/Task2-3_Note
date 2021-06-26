@@ -11,9 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.task2_3_note.R;
-import com.example.task2_3_note.notes.Note;
-import com.example.task2_3_note.notes.NotesAdapter;
+import com.example.task2_3_note.model.Note.Note;
+import com.example.task2_3_note.model.Note.NotesAdapter;
 import com.example.task2_3_note.presenter.MainPresenter;
+import com.example.task2_3_note.view.interfaces.IMainIView;
 
 public class ActivityMain extends AppCompatActivity implements IMainIView, NotesAdapter.OnNoteListener {
 
@@ -53,8 +54,14 @@ public class ActivityMain extends AppCompatActivity implements IMainIView, Notes
     private void init() {
         findViewById(R.id.addNoteButton).setOnClickListener(v -> {
             //Неявный интент
+/*
             Intent intent = new Intent("android.intent.action.ACTION_ADD_NOTE");
             startActivityForResult(intent, GET_NOTE);
+*/
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, "text");
+            startActivity(intent);
         });
         presenter = new MainPresenter(this);
 

@@ -1,4 +1,4 @@
-package com.example.task2_3_note.notes;
+package com.example.task2_3_note.model.Note;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +15,8 @@ import java.util.List;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
 
-    private List<Note> notes = new ArrayList<>();
-    private OnNoteListener onNoteListener;
+    private final List<Note> notes = new ArrayList<>();
+    private final OnNoteListener onNoteListener;
 
     public NotesAdapter(OnNoteListener onNoteListener) {
         this.onNoteListener = onNoteListener;
@@ -52,8 +52,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
     class NotesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        private TextView header;
-        private TextView date;
+        private final TextView header;
+        private final TextView date;
         OnNoteListener onNoteListener;
 
         public NotesViewHolder(View itemView, OnNoteListener onNoteListener) {

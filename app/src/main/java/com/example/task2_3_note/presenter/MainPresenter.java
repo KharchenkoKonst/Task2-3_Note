@@ -1,8 +1,8 @@
 package com.example.task2_3_note.presenter;
 
 import com.example.task2_3_note.model.Model;
-import com.example.task2_3_note.notes.Note;
-import com.example.task2_3_note.view.IMainIView;
+import com.example.task2_3_note.model.Note.Note;
+import com.example.task2_3_note.view.interfaces.IMainIView;
 
 import java.util.List;
 

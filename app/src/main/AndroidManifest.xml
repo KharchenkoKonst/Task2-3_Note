@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Task2Note">
-        <activity android:name=".view.ActivityNoteContent"></activity>
         <activity android:name=".view.ActivityNewNote">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_ADD_NOTE" />

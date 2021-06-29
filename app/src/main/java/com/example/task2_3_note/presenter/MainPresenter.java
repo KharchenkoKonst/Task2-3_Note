@@ -1,21 +1,22 @@
 package com.example.task2_3_note.presenter;
 
 import android.content.Intent;
+import android.os.Bundle;
 
 import com.example.task2_3_note.model.Model;
 import com.example.task2_3_note.model.Note.Note;
 import com.example.task2_3_note.view.ActivityMain;
-import com.example.task2_3_note.view.interfaces.IMainIView;
+import com.example.task2_3_note.view.interfaces.IMainView;
 
 import java.util.List;
 
 
 public class MainPresenter {
 
-    private final IMainIView view;
+    private final IMainView view;
     private final Model model;
 
-    public MainPresenter(IMainIView view) {
+    public MainPresenter(IMainView view) {
         this.model = new Model();
         this.view = view;
     }
@@ -39,7 +40,11 @@ public class MainPresenter {
     }
 
     public void openNote(int id) {
-        view.openNote(model.getNotes().get(id).getBody());
+        Bundle data = new Bundle();
+        String text = model.getNotes().get(id).getBody();
+
+        data.putString(ActivityMain.NOTE_CONTENT, text);
+        view.openNote(data);
     }
 
 }

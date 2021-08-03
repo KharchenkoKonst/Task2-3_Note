@@ -13,6 +13,12 @@ import com.example.task2_3_note.R;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+    До сих пор не понимаю почему адаптер относится к модели, это ведь посредник который
+    нужен в первую очередь для заполнения контентом view, кроме того из view чаще всего мы к адаптеру
+    и обращаемся.
+ */
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
 
     private final List<Note> notes = new ArrayList<>();
